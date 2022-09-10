@@ -1,0 +1,76 @@
+{% extends 'documentos/main.html'%}
+{% block content %}
+
+<style>
+    .card{
+         background: rgb(105, 51, 148, 0.05);
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    .pic{
+        max-width: 100px;
+        max-height:100px;
+        margin: 0 auto;
+        margin-left: 10%;
+        }
+        a:link {
+      text-decoration: none;
+    }
+
+    .order-card {
+      color: #fff;
+    }
+
+    .bg-c-blue {
+      background: linear-gradient(45deg, #000000d3, #229954);
+      border: 1px solid rgba(78, 52, 46, 0.5)
+    }
+    .bg-c-green {
+      background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+    }
+
+    .bg-c-yellow {
+      background: linear-gradient(45deg, #FFB64D, #ffcb80);
+    }
+
+    .bg-c-pink {
+      background: linear-gradient(45deg, #FF5370, #ff869a);
+    }
+    .card .card-block {
+      padding: 25px;
+    }
+
+    .order-card i {
+      font-size: 26px;
+    }
+
+    .f-left {
+      float: left;
+    }
+
+    .f-right {
+      float: right;
+    }
+    .swal2-modal .swal2-title{
+        color: rgb(0, 0, 0);
+    }
+    .swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring{
+      margin-bottom: 20px;
+    }
+ </style>
+<div class="col-md-12">
+    <H4>Inicio</H4>
+    {% if messages %}
+          {% for message in messages %}
+          <script>
+            Swal.fire({
+            "title":"Felicitaciones",
+            "text": "{{message}}",
+            "icon": "success"
+            })
+           </script>
+          {% endfor %}
+          {% endif %}
+</div>
+  
+{% endblock %}
+
