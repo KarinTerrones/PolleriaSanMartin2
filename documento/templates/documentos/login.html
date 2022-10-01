@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Polleria San Martin</title>
+    <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" href="" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+            <div class="card col-lg-4 mx-auto">
+              <div class="card-body px-5 py-5">
+                <h3 class="card-title text-left mb-3">Login</h3>
+                <form method="POST" action="">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label>Correo</label>
+                    <input type="text" name="email" class="form-control p_input">
+                  </div>
+                  <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password"  name="password" class="form-control p_input">
+                  </div>
+                  <div class="form-group d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input"> Recuerdame </label>
+                    </div>
+                    <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">Ingresar</button>
+                  </div>
+                </form>
+                <br>
+                {% for messages in messages %}
+                <p id="messages" style="color:#f80101;">{{messages}}</p>
+                 {% endfor%}
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      body { 
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-image:url(/static/imagenes/WhatsApp\ Image\ 2022-09-29\ at\ 7.52.36\ PM.jpeg);
+
+        
+      }
+      .card {
+        background-color :#ffededd3;
+      }
+    </style>
+    <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/static/js/off-canvas.js"></script>
+    <script src="/static/js/hoverable-collapse.js"></script>
+    <script src="/static/js/misc.js"></script>
+    <script src="/static/js/settings.js"></script>
+    <script src="/static/js/todolist.js"></script>
+  </body>
+</html>

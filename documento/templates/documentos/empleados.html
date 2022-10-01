@@ -1,0 +1,25 @@
+{% extends 'documentos/main.html'%}
+{% block content %}
+<div class="table-responsive">
+    <h5>Encargados de Area</h5>
+<br>
+<table style="text-align:center;" class="table table-bordered">
+   <tr style="color:#000000;">
+        <th>Area</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>celular</th>
+        <th>correo</th>
+   </tr> 
+    {% for area in area %}
+        <tr>
+            <td>{{area.nombre}}</td>
+            <td>{{area.encargado.nombre}}</td>
+            <td>{{area.encargado.apellido_pater}} {{area.encargado.apellido_mater}}</td>
+            <td>{{area.encargado.celular}}</td>
+            <td>{{area.encargado.email}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

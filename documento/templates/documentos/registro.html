@@ -1,0 +1,21 @@
+{% extends 'documentos/main.html'%}
+{% load static %}
+{% block content %}
+<style>
+.swal2-modal .swal2-title{
+    color: rgb(0, 0, 0);
+}
+.swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring{
+  margin-bottom: 20px;
+}
+</style>
+<div class="col-md-12">
+<H4>Registro</H4>
+
+<form method='POST'action=""  enctype="multipart/form-data" >
+{% csrf_token %}
+{{ doc_form.as_p }}
+<input  class="btn btn-primary"  type="submit" name="Update Information" value="Guardar">
+</form>
+</div>
+{% endblock %}

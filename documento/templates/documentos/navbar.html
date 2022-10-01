@@ -1,0 +1,133 @@
+{% load static %}
+<!--Inicio Caja Superior SideBar-->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+    <!--Logos de la pagina-->
+    <a class="sidebar-brand brand-logo" href=""><img src="" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo-mini" href=""><img src="" alt="logo" /></a>
+  </div>
+    <!--Fin de logos-->
+
+<!--Fin Caja Superior SideBar-->
+
+<!--Inicio NavBar-->
+  <ul class="nav">
+    <li class="nav-item profile">
+      <div class="profile-desc">
+        <div class="profile-pic">
+          
+          <div class="profile-name">
+            <h5 class="mb-0 font-weight-normal">{{request.user.username}}</h5>
+          </div>
+        </div>
+        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+          <div class="dropdown-divider"></div>
+          <a href="{% url 'logout' %}" class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-dark rounded-circle">
+                <i class="mdi mdi-logout"></i>
+              </div>
+            </div>
+            <div class="preview-item-content">
+              <p class="preview-subject ellipsis mb-1 text-small">Cerrar Sesion</p>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </div>
+    </li>
+    <!-- Fin NavBard-->
+
+
+    <!--Inicio NavBar Admin-->
+{% if user.groups.all.0.name == "admin" %} 
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{% url 'home' %}">
+        <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+        </span>
+        <span class="menu-title">Inicio</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{% url 'solicitudes' %}">
+        <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+        </span>
+        <span class="menu-title">Solicitudes</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="">
+        <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+        </span>
+        <span class="menu-title">Documentos</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{% url 'empleados' %}">
+        <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+        </span>
+        <span class="menu-title">Encargados de Area</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="">
+        <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+        </span>
+        <span class="menu-title">Provedores</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="">
+        <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+        </span>
+        <span class="menu-title">Registrar Usuarios</span>
+      </a>
+    </li>
+
+{% endif %}
+  <!--Fin NavBar Admin-->
+
+  <!--Inicio NavBar Encargado_Area-->
+{% if user.groups.all.0.name == "a_encargado" %}  
+  <li class="nav-item menu-items">
+    <a class="nav-link" href="{% url 'home' %}">
+      <span class="menu-icon">
+        <i class="mdi mdi-home"></i>
+      </span>
+      <span class="menu-title">Inicio</span>
+    </a>
+  </li>
+  <li class="nav-item menu-items">
+    <a class="nav-link" href="{% url 'registro' %}">
+      <span class="menu-icon">
+        <i class="mdi mdi-account-card-details"></i>
+      </span>
+      <span class="menu-title">Registrar</span>
+    </a>
+  </li>
+  <li class="nav-item menu-items">
+    <a class="nav-link" href="{% url 'historial' %}">
+      <span class="menu-icon">
+        <i class="mdi mdi-book-open-page-variant"></i>
+      </span>
+      <span class="menu-title">Historial</span>
+    </a>
+  </li>
+  <li class="nav-item menu-items">
+    <a class="nav-link" href="{% url 'perfil' %}">
+      <span class="menu-icon">
+        <i class="mdi mdi-book-open-page-variant"></i>
+      </span>
+      <span class="menu-title">Perfil</span>
+    </a>
+  </li>
+{% endif %}
+  <!--Fin NavBar Encargado_Area-->
+</nav>

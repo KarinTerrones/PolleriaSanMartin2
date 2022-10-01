@@ -1,0 +1,24 @@
+{% load crispy_forms_tags %}
+              <div class="card-body px-5 py-5">
+                <h3 class="card-title text-left mb-3">Registrar</h3>
+                <form  action="" method="POST">
+                    {% csrf_token %}
+                    {{r_form|crispy }}
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">Registrar</button>
+                  </div>
+                </form>
+    <style>
+      .card-body {
+        background-color :#897f7f74;
+      }
+    </style>
+    <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/static/js/off-canvas.js"></script>
+    <script src="/static/js/hoverable-collapse.js"></script>
+    <script src="/static/js/misc.js"></script>
+    <script src="/static/js/settings.js"></script>
+    <script src="/static/js/todolist.js"></script>
+  </body>
+</html>

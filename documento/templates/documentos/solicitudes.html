@@ -1,0 +1,37 @@
+{% extends 'documentos/main.html'%}
+{% block content %}
+<div class="table-responsive">
+    <h5>Solicitudes</h5>
+        <form method="get">
+            <label for="">&nbsp;&nbsp;</label>{{filtro.form}}
+            <button class="btn-inverse-primary " type="submit"><i class="fa-solid fa-magnifying-glass"></i> &nbsp;&nbsp;Buscar</button>
+        </form>
+<br>
+<table style="text-align:center;" class="table table-bordered">
+   <tr style="color:#000000;">
+        <th>Asunto</th>
+        <th>Tipo</th>
+        <th>Estado</th>
+        <th>Proveedor</th>
+        <th>Solicitante</th>
+        <th>Fecha Solicitud</th>
+        <th>Area</th>
+        <th>Visualizar</th>
+   </tr> 
+    {% for solic in solic %}
+        <tr>
+            <td>{{solic.nombre}}</td>
+            <td>{{solic.tipo}}</td>
+            <td>
+            <div class="badge badge-outline-warning">{{solic.estado}}</div>
+            </td>
+            <td>{{solic.proveedor}}</td>
+            <td>{{solic.encargado}}</td>
+            <td>{{solic.data_created}}</td>
+            <td>{{solic.encargado.area.nombre}}</td>
+            <td><a class="btn btn-sm btn-info btn-rounded" href="{% url 'generar_pedido'  %}"><i class="fa-solid fa-eye"></i>&nbsp;Descargar</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

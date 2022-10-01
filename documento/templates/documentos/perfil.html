@@ -1,0 +1,39 @@
+{% extends 'documentos/main.html'%}
+{% block content %}
+<style>
+    .card{
+           background: rgb(105, 51, 148, 0.05);
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       }
+    .profile-pic{
+    max-width: 200px;
+    max-height:200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    }
+  </style>
+<div class="card-body">
+    <div class="row">
+      <div class="col-md-3">
+        <div style="text-align: center" class="card card-body">
+            <h3 style="text-align: center"> Configuracion de Perfil</h3>
+            <hr>
+            <img class="profile-pic" src="{{request.user.encargadoarea.foto_perfil.url}}">
+            <hr>
+        </div>
+      </div>
+        <div class="col-md-7">    
+          <div class="card card-body">
+           <form method="POST" action="" enctype="multipart/form-data">
+             {% csrf_token %}
+             {{perfil_form}}
+             <br>
+             <input  class="btn btn-primary"  type="submit" name="Update Information" value="Guardar">
+           </form>
+          </div>
+        </div>
+    </div>
+    </div>        
+
+
+{% endblock %}

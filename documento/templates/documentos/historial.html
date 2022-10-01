@@ -1,0 +1,29 @@
+{% extends 'documentos/main.html'%}
+{% block content %}
+<div class="table-responsive">
+    <h5>Historial</h5>
+        <form method="get">
+            <label for="">Estado:&nbsp;&nbsp;</label>{{filtro.form.estado}}
+            <button class="btn-inverse-primary " type="submit"><i class="fa-solid fa-magnifying-glass"></i> &nbsp;&nbsp;Buscar</button>
+        </form>
+<br>
+<table style="text-align:center;" class="table table-bordered">
+   <tr style="color:#000000;">
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Estado</th>
+        <th>Proveedor</th>
+   </tr> 
+    {% for doc in documentos %}
+        <tr>
+            <td>{{doc.nombre}}</td>
+            <td>{{doc.tipo}}</td>
+            <td>
+            <div class="badge badge-outline-warning">{{doc.estado}}</div>
+            </td>
+            <td>{{doc.proveedor}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}
